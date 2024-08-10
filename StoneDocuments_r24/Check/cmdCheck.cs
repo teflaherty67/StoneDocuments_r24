@@ -1,7 +1,7 @@
 ﻿namespace StoneDocuments_r24
 {
     [Transaction(TransactionMode.Manual)]
-    public class Command1 : IExternalCommand
+    public class cmdCheck : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
