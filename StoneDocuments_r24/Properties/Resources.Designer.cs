@@ -63,9 +63,9 @@ namespace StoneDocuments_r24.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Blue_16 {
+        internal static System.Drawing.Bitmap Check_16 {
             get {
-                object obj = ResourceManager.GetObject("Blue_16", resourceCulture);
+                object obj = ResourceManager.GetObject("Check_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,69 @@ namespace StoneDocuments_r24.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Blue_32 {
+        internal static System.Drawing.Bitmap Check_32 {
             get {
-                object obj = ResourceManager.GetObject("Blue_32", resourceCulture);
+                object obj = ResourceManager.GetObject("Check_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Clear_16 {
+            get {
+                object obj = ResourceManager.GetObject("Clear_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Clear_32 {
+            get {
+                object obj = ResourceManager.GetObject("Clear_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ScheduleSwap_16 {
+            get {
+                object obj = ResourceManager.GetObject("ScheduleSwap_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ScheduleSwap_32 {
+            get {
+                object obj = ResourceManager.GetObject("ScheduleSwap_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SheetMaker_16 {
+            get {
+                object obj = ResourceManager.GetObject("SheetMaker_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SheetMaker_32 {
+            get {
+                object obj = ResourceManager.GetObject("SheetMaker_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
