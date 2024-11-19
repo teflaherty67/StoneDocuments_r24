@@ -1,7 +1,7 @@
 ﻿namespace StoneDocuments_r24
 {
     [Transaction(TransactionMode.Manual)]
-    public class Command1 : IExternalCommand
+    public class cmdSheetMaker : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -136,8 +136,8 @@
                     buttonInternalName,
                     buttonTitle,
                     methodBase,
-                    Properties.Resources.Blue_32,
-                    Properties.Resources.Blue_16,
+                    Properties.Resources.SheetMaker_32,
+                    Properties.Resources.SheetMaker_16,
                     "This is a tooltip for Button 1");
 
                 return myButtonData1.Data;

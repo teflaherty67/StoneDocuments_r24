@@ -4,31 +4,38 @@ namespace StoneDocuments_r24
     {
         public Result OnStartup(UIControlledApplication app)
         {
-            // 1. Create ribbon tab
-            //string tabName = "My First Revit Add-in";
-            //try
-            //{
-            //    app.CreateRibbonTab(tabName);
-            //}
-            //catch (Exception)
-            //{
-            //    Debug.Print("Tab already exists.");
-            //}
+            // create ribbon tab
+            string tabName = "Stone Documents";
+            try
+            {
+                app.CreateRibbonTab(tabName);
+            }
+            catch (Exception)
+            {
+                Debug.Print("Tab already exists.");
+            }
 
-            //// 2. Create ribbon panel 
-            //RibbonPanel panel = Utils.Common.CreateRibbonPanel(app, tabName, "Revit Tools");
+            // create ribbon panel 
+            RibbonPanel panel01 = Utils.CreateRibbonPanel(app, "Stone Documents", "Parts");
+            RibbonPanel panel02 = Utils.CreateRibbonPanel(app, "Stone Documents", "Sheets");
 
-            //// 3. Create button data instances
-            //PushButtonData btnData1 = Command1.GetButtonData();
-            //PushButtonData btnData2 = Command2.GetButtonData();
+            // create button data instances for panel 01
+            PushButtonData btnData1_1 = cmdCheck.GetButtonData();
+            PushButtonData btnData1_2 = cmdReset.GetButtonData();
+            
+            // create button data instances for panel 02
+            PushButtonData btnData2_1 = cmdScheduleSwap.GetButtonData();
+            PushButtonData btnData2_2 = cmdSheetMaker.GetButtonData();
 
-            //// 4. Create buttons
-            //PushButton myButton1 = panel.AddItem(btnData1) as PushButton;
-            //PushButton myButton2 = panel.AddItem(btnData2) as PushButton;
+            // create buttons for panel 01
+            PushButton myButton1 = panel01.AddItem(btnData1_1) as PushButton;
+            PushButton myButton2 = panel02.AddItem(btnData1_2) as PushButton;
 
-            // NOTE:
-            // To create a new tool, copy lines 35 and 39 and rename the variables to "btnData3" and "myButton3". 
-            // Change the name of the tool in the arguments of line 
+            // create buttons for panel 02
+
+        //NOTE:
+        //    To create a new tool, copy lines 35 and 39 and rename the variables to "btnData3" and "myButton3".
+        //     Change the name of the tool in the arguments of line
 
             return Result.Succeeded;
         }

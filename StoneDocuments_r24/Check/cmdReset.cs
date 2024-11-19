@@ -1,45 +1,44 @@
 ﻿namespace StoneDocuments_r24
 {
     [Transaction(TransactionMode.Manual)]
-    public class cmdScheduleSwap : IExternalCommand
+    public class cmdReset : IExternalCommand
     {
-        public ViewSheet curSheet;
-
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             // this is a variable for the Revit application
             UIApplication uiapp = commandData.Application;
 
             // this is a variable for the current Revit model
-            Document curDoc = uiapp.ActiveUIDocument.Document;
+            Document doc = uiapp.ActiveUIDocument.Document;
 
-            // check current view - make sure it's a sheet
+            string userName = uiapp.Application.Username;
 
-            if (!(curDoc.ActiveView is ViewSheet))
+            // set current view to 3D view
+            View curView;
+
+            if (doc.IsWorkshared == true)
+                curView = Utils.GetViewByName(doc, "{3D - " + userName + "}");
+            else
+                curView = Utils.GetViewByName(doc, "{3D}");
+
+            // get all elements in view
+            List<Element> viewElements = Utils.GetElementsFromView(doc, curView);
+
+            // set override settings
+            OverrideGraphicSettings colSet = new OverrideGraphicSettings();
+
+            // update element overrides in view
+            using (Transaction t = new Transaction(doc))
             {
-                TaskDialog.Show("Error", "Please make the active view a sheet");
-                return Result.Failed;
+                t.Start("Reset elements");
+
+                foreach (Element curElem in viewElements)
+                {
+                    doc.ActiveView.SetElementOverrides(curElem.Id, colSet);
+                }
+
+                t.Commit();
             }
-
-            curSheet = curDoc.ActiveView as ViewSheet;
-
-            if (Utils.SheetHasSchedule(curDoc, curSheet) == false)
-            {
-                TaskDialog.Show("Error", "The current sheet does not have a schedule. Please select another sheet.");
-                return Result.Failed;
-            }
-
-            // open form
-            frmScheduleSwap curForm = new frmScheduleSwap(uiapp)
-            {
-                Width = 450,
-                Height = 150,
-                WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen,
-                Topmost = true,
-            };
-
-            curForm.ShowDialog();
-
 
             return Result.Succeeded;
         }
@@ -60,13 +59,12 @@
                     buttonInternalName,
                     buttonTitle,
                     methodBase,
-                    Properties.Resources.ScheduleSwap_32,
-                    Properties.Resources.ScheduleSwap_16,
+                    Properties.Resources.Blue_32,
+                    Properties.Resources.Blue_16,
                     "This is a tooltip for Button 1");
 
                 return myButtonData1.Data;
             }
         }
     }
-
 }
